@@ -167,7 +167,7 @@
     "open": "^10.1.0",
     "p-limit": "^5.0.0",
     "pg": "8.11.3",
-    "playwright": "1.50.0",
+    "playwright": "1.55.1",
     "playwright-core": "1.50.0",
     "prettier": "3.5.3",
     "react": "19.1.0",
