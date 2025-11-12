@@ -1,5 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "tsconfig.base.json"
+  ],
   "tasks": {
     "clean": {
       "cache": false,
@@ -14,9 +19,17 @@
       "cache": false
     },
     "lint": {
-      "cache": false
+      "cache": true,
+      "dependsOn": ["^build"]
     },
     "lint:fix": {
+      "cache": false
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "prettier:fix": {
       "cache": false
     }
   }
