@@ -1,5 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "tsconfig.json",
+    "tsconfig.base.json"
+  ],
   "tasks": {
     "clean": {
       "cache": false,
@@ -8,15 +14,28 @@
     "build": {
       "cache": true,
       "dependsOn": ["^build"],
-      "outputs": ["./dist/**"]
+      "outputs": ["./dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "build:app": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
       "cache": false
     },
     "lint": {
-      "cache": false
+      "cache": true,
+      "dependsOn": ["^build"]
     },
     "lint:fix": {
+      "cache": false
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "prettier:fix": {
       "cache": false
     }
   }
