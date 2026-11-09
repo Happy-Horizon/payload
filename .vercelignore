@@ -1,0 +1,5 @@
+# Cursor agent config / docs - not needed in Vercel builds
+.cursor
+**/.cursor
+*.md
+**/*.md
